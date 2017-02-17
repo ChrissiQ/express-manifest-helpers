@@ -29,7 +29,7 @@ export function lookup(source) {
       return ''
 
     } catch(e) {
-      return source
+      return options.prependPath + source
     }
 }
 
