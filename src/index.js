@@ -20,12 +20,17 @@ function mapAttrs(attrs) {
 }
 
 export function lookup(source) {
-  manifest = loadManifest()
+  try {
+    manifest = loadManifest()
 
-  if(manifest[source])
-    return options.prependPath + manifest[source]
-  else
-    return ''
+    if(manifest[source])
+      return options.prependPath + manifest[source]
+    else
+      return ''
+
+    } catch(e) {
+      return source
+    }
 }
 
 export function trimTag(str){
